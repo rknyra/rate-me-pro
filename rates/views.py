@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from .models import *
+from django.contrib.auth.models import User
+from .forms import UpdateProfileForm, SubmitProjectForm
+from django.core.exceptions import ObjectDoesNotExist
 
 
 #VIEWS
@@ -13,8 +17,11 @@ def index(request):
 
 #profilePage
 def myProfile(request):
+    userProjects = Project.objects.filter(user=request.user)
+    userProfile = Profile.objects.all()
       
     return render(request, 'rmp_pages/profile.html', locals())
+
 
 
 #submitProject
@@ -22,6 +29,7 @@ def myProfile(request):
 def submitProject(request):
       
     return render(request, 'rmp_pages/submit_project.html', locals())
+
 
 
 #submitProject

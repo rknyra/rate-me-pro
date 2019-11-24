@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/"> <img src="static/images/sampleicon.png" style="width:14vh; height:5vh;"> | </a>
+  <a class="navbar-brand" href="/"> <img src="/static/images/sampleicon.png" style="width:14vh; height:5vh;"> | </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,7 @@
 
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Rate_Me_Pro <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Rate_Me_Pro <span class="sr-only">(current)</span></a>
       </li>
     </ul>
 <!-- endof centered logo-name link -->
@@ -28,18 +28,32 @@
 <!-- other navbar links -->
     <ul class="navbar-nav ml-auto">
       
+     
+        {% if user.is_authenticated %}
+
       <li class="nav-item">
-        <a class="nav-link" href="#">Reg/Login | </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Username <i class="fa fa-user-circle-o" style="font-size:24px"></i> </a>
+        <a class="nav-link" href="/my-profile">  {{request.user.username}} <i class="fa fa-user-circle-o" style="font-size:24px"></i> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Submit Your Project</a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-sign-out" style="font-size:24px"></i>  </a>
+        <a class="nav-link" href="logout/"><i class="fa fa-sign-out" style="font-size:24px"></i>  </a>
       </li>
+      
+      {% else %}
+
+       <li class="nav-item">
+        <a class="nav-link" href="/accounts/login">Reg/Login | </a>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="#">Submit Your Project</a>
+      </li>
+
+      {% endif %}
+      
     </ul>
 
   </div>

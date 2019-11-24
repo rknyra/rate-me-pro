@@ -21,14 +21,7 @@ class ProfileTestClass(TestCase):
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles) > 0)
         
-    #testing profile update
-    # def test_update_method(self):
-    #     prof = Profile.objects.create(bio='Pilot')
-    #     Profile.objects.filter(pk=prof.pk).update(bio='Snr Dev')
-    #     prof.save()
-    #     self.assertEqual(prof.bio, 'Snr Dev')
-    
-
+   #testing the update method on a profile property
     def test_update_method(self):
         self.chyle.save()
         new_bio = 'Snr Dev'

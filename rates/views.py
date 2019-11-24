@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 #VIEWS
@@ -17,6 +18,7 @@ def myProfile(request):
 
 
 #submitProject
+@login_required(login_url='/accounts/login')
 def submitProject(request):
       
     return render(request, 'rmp_pages/submit_project.html', locals())

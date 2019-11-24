@@ -1,3 +1,22 @@
 from django.test import TestCase
+from .models import Profile
+from django.contrib.auth.models import User
 
-# Create your tests here.
+
+#Testing the profile module
+class ProfileTestClass(TestCase):
+    
+    #setUpMethod
+    def setUp(self):
+        self.chyle = Profile(bio='Pilot', contact='123457890', user_id=1)
+        self.user = User.objects.create_user(id=1, username='cyle', email='cyle@gmail.com', password='chylesecret')
+    
+    #testing instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.chyle,Profile))
+        
+    #testing the save method
+    def test_save_method(self):
+        self.chyle.save_profile()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) > 0)

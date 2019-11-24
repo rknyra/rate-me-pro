@@ -14,3 +14,9 @@ class Profile(models.Model):
     bio = models.CharField(max_length = 250)
     contact = PhoneField(blank=True, help_text='Contact phone number')
     user = models.OneToOneField('auth.User',on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.user)
+    
+    def save_profile(self):
+        self.save()

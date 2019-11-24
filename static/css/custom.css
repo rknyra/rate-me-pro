@@ -3,7 +3,7 @@
  }
 
  .topBuffer {
-     margin-top: 5vh;
+     margin-top: 7vh;
  }
 
  .projectDiv {
@@ -72,6 +72,15 @@
   color: blue;
 }
 
+.login input[type='text'], input[type='password'] {
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.930125rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
 
-
-
+.smallFont {
+    color: blue;
+    font-size: medium;
+}

@@ -27,6 +27,8 @@ def myProfile(request):
 #submitProject
 @login_required(login_url='/accounts/login')
 def submitProject(request):
+    
+    submitProjectForm = SubmitProjectForm()
       
     return render(request, 'rmp_pages/submit_project.html', locals())
 
@@ -35,5 +37,6 @@ def submitProject(request):
 #submitProject
 @login_required(login_url='/accounts/login')
 def updateProfile(request):
-      
+    
+    updateProf = UpdateProfileForm()  
     return render(request, 'rmp_pages/update_profile.html', locals())

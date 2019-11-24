@@ -22,10 +22,15 @@ class ProfileTestClass(TestCase):
         self.assertTrue(len(profiles) > 0)
         
     #testing profile update
-    def test_update_method(self):
-        update = Profile.objects.filter(user_id=1).update_profile(bio='SnrDev')
-        self.update.save()
+    # def test_update_method(self):
+    #     prof = Profile.objects.create(bio='Pilot')
+    #     Profile.objects.filter(pk=prof.pk).update(bio='Snr Dev')
+    #     prof.save()
+    #     self.assertEqual(prof.bio, 'Snr Dev')
     
-    #testing updated image instance
-    def test_instance(self):
-        self.assertTrue(isinstance(self.update,Profile))
+
+    def test_update_method(self):
+        self.chyle.save()
+        new_bio = 'Snr Dev'
+        updated = self.chyle.update_bio(self.chyle.id,new_bio)
+        self.assertEqual(updated,new_bio)

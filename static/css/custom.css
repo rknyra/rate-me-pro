@@ -117,7 +117,10 @@
 }
 
 .profileDetails {
-    margin-top: -15vh;
+    margin-top: -13vh;
+}
+.profContent {
+    color: black;
 }
 
 .profilePic {
@@ -171,7 +174,7 @@
 .profUserName, .profBlack {
     color: gold;
     font-weight: bolder;
-    line-height: .7em;
+    line-height: .5em;
 }
 }
 
@@ -179,6 +182,6 @@
 @media only screen 
   and (device-width: 768px){
 .profileDetails {
-    margin-top: -18vh;
+    margin-top: -19vh;
 }
 }

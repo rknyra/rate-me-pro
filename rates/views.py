@@ -22,3 +22,10 @@ def myProfile(request):
 def submitProject(request):
       
     return render(request, 'rmp_pages/submit_project.html', locals())
+
+
+#submitProject
+@login_required(login_url='/accounts/login')
+def updateProfile(request):
+      
+    return render(request, 'rmp_pages/update_profile.html', locals())

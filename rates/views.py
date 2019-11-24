@@ -14,3 +14,9 @@ def index(request):
 def myProfile(request):
       
     return render(request, 'rmp_pages/profile.html', locals())
+
+
+#submitProject
+def submitProject(request):
+      
+    return render(request, 'rmp_pages/submit_project.html', locals())

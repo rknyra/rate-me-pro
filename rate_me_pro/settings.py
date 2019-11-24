@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rates',
     'bootstrap4',
     'django_registration',
+    'pyuploadcare.dj',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,13 @@ TEMPLATES = [
         },
     },
 ]
+
+from decouple import config
+
+UPLOADCARE = {
+    'pub_key': '84f26b0c713f49cc3eda',
+    'secret':config('SECRET'),
+}
 
 WSGI_APPLICATION = 'rate_me_pro.wsgi.application'
 

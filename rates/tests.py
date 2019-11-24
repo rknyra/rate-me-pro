@@ -20,3 +20,12 @@ class ProfileTestClass(TestCase):
         self.chyle.save_profile()
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles) > 0)
+        
+    #testing profile update
+    def test_update_method(self):
+        update = Profile.objects.filter(user_id=1).update_profile(bio='SnrDev')
+        self.update.save()
+    
+    #testing updated image instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.update,Profile))

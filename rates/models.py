@@ -20,3 +20,6 @@ class Profile(models.Model):
     
     def save_profile(self):
         self.save()
+        
+    def update_profile(self):
+        update=Profile.objects.filter(id=Profile.id).update()

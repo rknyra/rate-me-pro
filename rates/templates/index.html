@@ -12,17 +12,25 @@
 
 <!-- one card that will be looped over -->
 
-<div class="card">
-  <img class="card-img-top" src="static/images/sampleicon.png" alt="Card image cap">
+<div class="card projectDiv">
+  <img class="card-img-top projectImage" src="static/images/sampleicon.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Project Title which is a link to the live site </h5>
-    <p class="card-text"> Project description will come here ... not more than 300 characters </p>
+    <h5 class="card-title"> <a href="/"> Project Title </a> </h5>
+    <p class="card-text blur">  Project description will come here ... not more than 300 characters</p>  
+
+
+        <div class="overlay">
+        <p class="aveScore"> ave score:  </p> <!-- hidden until img hover -->
+        </div>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter"> Rate this project </button>
 
   </div>
 </div>
 
+
+     
 <!-- loop to end above this comment-->
 
 
@@ -43,6 +51,7 @@
         Design: rating... <br>
         Usability: rating... <br>
         Content: rating... <br>
+        Average Score: auto-calculated from above scores
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -53,10 +62,9 @@
 </div>
 
 
-
-
 </div> <!-- end of column div -->
 </div> <!-- end of outer row-->
 </div> <!-- end of container-->
+
 
 {% endblock %}

@@ -5,3 +5,56 @@
  .topBuffer {
      margin-top: 5vh;
  }
+
+ .projectDiv {
+     position: relative;
+     width: 100%;
+ }
+
+   
+ .projectImage {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+    
+  .overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 90%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: fit-content;
+  }
+
+  .projectDiv:hover .projectImage .blur {
+      opacity: 0.2;
+  }
+
+   
+  .projectDiv:hover .overlay {
+    opacity: 1;
+  }
+
+   
+  .aveScore {
+    background-color:#88b0fa;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 2px 4px;
+  }
+
+
+
+
+
+

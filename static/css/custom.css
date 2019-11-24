@@ -2,6 +2,24 @@
     line-height: 40px;
  }
 
+ body, .blur {
+    /* font-family: 'IBM Plex Sans', sans-serif; */
+    /* font-family: 'Patrick Hand', cursive; */
+    /* font-family: 'Handlee', cursive; */
+    /* font-family: 'Oleo Script', cursive; */
+    /* font-family: 'Galada', cursive; */
+    /* font-family: 'Paytone One', sans-serif; */
+    /* font-family: 'Lobster', cursive; */
+    font-family: 'Kreon', serif;
+
+
+ }
+
+ .nav-link {
+    font-family: 'Kreon', serif;
+    font-size: 23px;
+}
+
  .topBuffer {
      margin-top: 7vh;
  }

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_registration',
     'pyuploadcare.dj',
+    'phone_field',
 ]
 
 MIDDLEWARE = [

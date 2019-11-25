@@ -69,3 +69,19 @@ def updateProfile(request):
     
       
     return render(request, 'rmp_pages/update_profile.html', locals())
+
+
+
+#search projects
+def searchProjects(request):
+    if 'search' in request.GET and request.GET["search"]:
+    
+        search_term = request.GET.get("search")
+        searched_project = User.objects.filter(username__icontains=search_term)
+        message = f"{search_term}" 
+        
+        return render(request, 'rmp_pages/search_results.html', locals())
+      
+    else:
+        message = "you haven't searched for any project"  
+    return render(request, 'rmp_pages/search_results.html', locals())

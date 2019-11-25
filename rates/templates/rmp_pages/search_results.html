@@ -49,11 +49,9 @@
     <p> Most recent project review based on the project's:</p>
 
     {% for criteria in project.review_set.all %}
-
-    <p> Design: {{ criteria.design }}</p>
-    <p> Usability: {{ criteria.usability }}</p>
-    <p> Content: {{ criteria.content }}</p>
-    <p> Average Rating: {{ criteria.average }}</p>
+      <div class"card-footer ratings" style="display: flex;">
+        <p> Dsgn: {{ criteria.design }},  Use: {{ criteria.usability }}, Cntnt: {{ criteria.content }}, Ave: {{ criteria.average }}, Reviewed by: {{ criteria.user }} </p>
+      </div>
     {% endfor %}
 
   </div>

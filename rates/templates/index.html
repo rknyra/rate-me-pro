@@ -33,7 +33,13 @@
 
 
     <!-- Button trigger modal -->
+
     <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#{{project.id}}"> Rate this project </button>
+
+    <p> Design: {{ design }}</p>
+
+    <p> Average Rating: {{project.average.set_all}} </p>
+
 
   </div>
 </div>
@@ -57,7 +63,7 @@
 
         <!-- ===== PROJECT RATING FORM -->
 
-        <form enctype="multipart/form-data" method="post">
+        <form action="{% url 'rate_projects' project_id=project.id %}" enctype="multipart/form-data" method="post">
           {% csrf_token %}
           {% bootstrap_form rateForm %}
           <input type="submit" value="Submit" class="btn btn-primary">
@@ -65,16 +71,16 @@
 
         <!-- ===== END OF PROJECT RATING FORM -->
 
+        <p> Average Rating: {{average}} </p>
+
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        {% comment %} <button type="button" class="btn btn-success">Submit review</button> {% endcomment %}
       </div>
     </div>
   </div>
 </div>
-
 
 </div> <!-- end of column div -->
 

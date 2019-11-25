@@ -18,6 +18,7 @@ def index(request):
     return render(request, 'index.html', locals())
 
 #rateProjects
+@login_required(login_url='/accounts/login')
 def rateProjects(request, project_id):
     # reviews/ratings
     project = get_object_or_404(Project,pk=project_id)

@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from pyuploadcare.dj.models import ImageField
 from phone_field import PhoneField
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 
@@ -64,10 +65,10 @@ class Project(models.Model):
 
 #Review/Rating Model
 class Review(models.Model):
-    design = models.IntegerField(default=0)
-    usability = models.IntegerField(default=0)
-    content = models.IntegerField(default=0)
-    average = models.IntegerField(default=0)
+    design = models.IntegerField(default=0, validators=[MinValueValidator(1),MaxValueValidator(10)])
+    usability = models.IntegerField(default=0, validators=[MinValueValidator(1),MaxValueValidator(10)])
+    content = models.IntegerField(default=0, validators=[MinValueValidator(1),MaxValueValidator(10)])
+    average = models.IntegerField(default=0, validators=[MinValueValidator(1),MaxValueValidator(10)])
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

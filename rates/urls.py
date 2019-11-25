@@ -9,6 +9,5 @@ urlpatterns = [
     path('submit-project/',views.submitProject,name='submit_project'),
     path('update-profile/',views.updateProfile,name='update_profile'),
     path('search-projects/',views.searchProjects,name='search_projects'),
-
-
+    path('rate-projects/<int:project_id>',views.rateProjects,name='rate_projects'),
 ]

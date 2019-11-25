@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.contrib.auth.models import User
-from .forms import UpdateProfileForm, SubmitProjectForm
+from .forms import UpdateProfileForm, SubmitProjectForm, RateProjectForm
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.db.models import Avg
 
 #VIEWS
 
@@ -12,8 +12,32 @@ from django.core.exceptions import ObjectDoesNotExist
 def index(request):
     
     projects=Project.objects.all()
-      
+    
+
+    rateForm = RateProjectForm()
     return render(request, 'index.html', locals())
+
+#rateProjects
+def rateProjects(request, project_id):
+    # reviews/ratings
+    project = get_object_or_404(Project,pk=project_id)
+    reviews = Review.objects.filter(project = project)
+    design = reviews.aggregate(Avg('design'))['design__avg']
+    usability = reviews.aggregate(Avg('usability'))['usability__avg']
+    content = reviews.aggregate(Avg('content'))['content__avg']
+    average = reviews.aggregate(Avg('average'))['average__avg']
+    
+    if request.method == 'POST':
+        rateForm = RateProjectForm(request.POST)
+        if rateForm.is_valid():
+            rates = rateForm.save(commit=False)
+            rates.average = (rates.design + rates.usability + rates.content) / 3
+            rates.project = project
+            rates.user = request.user
+            rates.save()
+    
+    return redirect('index')
+        
 
 
 

@@ -48,22 +48,79 @@
 
             <!-- ============= start of loop that lists all projects per specific user ================= -->
                 
-            <div class="card projectDiv">
-                <img class="card-img-top projectImage" src="static/images/sampleicon.png" alt="Card image cap">
-                <div class="card-body">
-                <h5 class="card-title"> <a href="/"> Project Title </a> </h5>
-                <p class="card-text blur">  Project description will come here ... not more than 300 characters</p>  
+        <div class='container-fluid topBuffer'>
+<div class="row">
 
 
-                <div class="overlay">
-                <p class="aveScore"> ave score:  </p> <!-- hidden until img hover -->
-                </div>
+<!-- one card that will be looped over -->
+{% for project in userProjects %}
 
-                    <!-- Button trigger modal -->
-                 <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter"> Rate this project </button>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 
-                 </div>
-            </div>
+
+<!--card containing project content -->
+<div class="card projectDiv">
+  <img class="card-img-top projectImage" src="{{ project.project_pic.cdn_url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"> <a href="{{ project.website }}"> {{ project.title }} </a> </h5>
+    <p class="card-text blur">  {{ project.description }}</p>
+    <p class="card-text blur"> <a href="{{ project.website }}"> View Site </a> </p>
+    <p class="card-text blur">  {{ project.user }}</p>  
+
+
+        <div class="overlay">
+        <p class="aveScore"> ave score:  </p> <!-- hidden until img hover -->
+        </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter"> Rate this project </button>
+
+  </div>
+</div>
+
+<!-- end of project-content-card -->
+
+
+<!-- Modal containing the review/rate form-->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Project title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        the review form to display here: <br>
+        Design: rating... <br>
+        Usability: rating... <br>
+        Content: rating... <br>
+        Average Score: auto-calculated from above scores
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Submit review</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div> <!-- end of column div -->
+
+
+{% endfor %}
+
+     
+<!-- loop to end above this comment-->
+
+
+
+
+</div> <!-- end of outer row-->
+</div> <!-- end of container-->
                 
 
 

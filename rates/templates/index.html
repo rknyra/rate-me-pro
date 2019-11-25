@@ -7,12 +7,15 @@
 
 <div class='container-fluid topBuffer'>
 <div class="row">
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 
 
 <!-- one card that will be looped over -->
 {% for project in projects %}
 
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="height:100%;">
+
+
+<!--card containing project content -->
 <div class="card projectDiv">
   <img class="card-img-top projectImage" src="{{ project.project_pic.cdn_url }}" alt="Card image cap">
   <div class="card-body">
@@ -32,11 +35,7 @@
   </div>
 </div>
 
-{% endfor %}
-
-     
-<!-- loop to end above this comment-->
-
+<!-- end of project-content-card -->
 
 
 <!-- Modal containing the review/rate form-->
@@ -67,6 +66,16 @@
 
 
 </div> <!-- end of column div -->
+
+
+{% endfor %}
+
+     
+<!-- loop to end above this comment-->
+
+
+
+
 </div> <!-- end of outer row-->
 </div> <!-- end of container-->
 

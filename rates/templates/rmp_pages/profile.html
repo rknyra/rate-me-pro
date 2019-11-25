@@ -26,7 +26,7 @@
                     <p> Bio: {{ request.user.profile.bio}}</p>
                     <p> Email: {{request.user.email}} </p>
                     <p> My Projects: {{user.project_set.all|length}}  </p>
-                    <p> <a href="/update-profile"> Edit Profile </a> </p>
+                    <p> <a href="{% url 'update_profile' %}"> Edit Profile </a> </p>
 
                 </div>
                 
@@ -48,7 +48,22 @@
 
             <!-- ============= start of loop that lists all projects per specific user ================= -->
                 
+            <div class="card projectDiv">
+                <img class="card-img-top projectImage" src="static/images/sampleicon.png" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title"> <a href="/"> Project Title </a> </h5>
+                <p class="card-text blur">  Project description will come here ... not more than 300 characters</p>  
 
+
+                <div class="overlay">
+                <p class="aveScore"> ave score:  </p> <!-- hidden until img hover -->
+                </div>
+
+                    <!-- Button trigger modal -->
+                 <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter"> Rate this project </button>
+
+                 </div>
+            </div>
                 
 
 

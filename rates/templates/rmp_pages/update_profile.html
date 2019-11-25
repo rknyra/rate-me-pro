@@ -4,30 +4,32 @@
 
 {% block content %}
 
-{{block.super}}
+{% comment %} {{block.super}} {% endcomment %}
 
 
 
 <div class="container-fluid topBuffer">
 
 <div class="jumbotron">
+<div class="row justify-content-center">
 
-
-<div>
+<div class='col-lg-7 col-md-7 col-sm-7 col-xs-7'>
 
 <!-- PROFILE UPDATE FORM -->
-    <form  action="{% url 'index' %}" method="post">
+    <form enctype="multipart/form" action="{% url 'update_profile' %}" method="post">
 
     {% csrf_token %}
 
-    {% bootstrap_form updateProf layout='inline' %}
+    {% bootstrap_form updateProf  %}
 
     <div class="form-group">
 
-    <input type="submit" class="btn btn-primary btn-sm my-2" value="Submit">
+    <input type="submit" class="btn btn-primary my-2" value="Submit">
     </div>
    </form>
    <!-- END OF FORM -->
+
+</div>
 
 </div>
 

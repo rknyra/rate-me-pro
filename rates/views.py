@@ -77,7 +77,7 @@ def searchProjects(request):
     if 'search' in request.GET and request.GET["search"]:
     
         search_term = request.GET.get("search")
-        searched_project = User.objects.filter(username__icontains=search_term)
+        searched_projects = Project.objects.filter(title__icontains=search_term)
         message = f"{search_term}" 
         
         return render(request, 'rmp_pages/search_results.html', locals())

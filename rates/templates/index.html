@@ -11,12 +11,15 @@
 
 
 <!-- one card that will be looped over -->
+{% for project in projects %}
 
 <div class="card projectDiv">
-  <img class="card-img-top projectImage" src="static/images/sampleicon.png" alt="Card image cap">
+  <img class="card-img-top projectImage" src="{{ project.project_pic.cdn_url }}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title"> <a href="/"> Project Title </a> </h5>
-    <p class="card-text blur">  Project description will come here ... not more than 300 characters</p>  
+    <h5 class="card-title"> <a href="/"> {{ project.title }} </a> </h5>
+    <p class="card-text blur">  {{ project.description }}</p>
+    <p class="card-text blur">  {{ project.website }}</p>
+    <p class="card-text blur">  {{ project.user }}</p>  
 
 
         <div class="overlay">
@@ -29,6 +32,7 @@
   </div>
 </div>
 
+{% endfor %}
 
      
 <!-- loop to end above this comment-->

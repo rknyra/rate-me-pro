@@ -10,6 +10,8 @@ from django.core.exceptions import ObjectDoesNotExist
 
 #index
 def index(request):
+    
+    projects=Project.objects.all()
       
     return render(request, 'index.html', locals())
 
@@ -27,16 +29,44 @@ def myProfile(request):
 #submitProject
 @login_required(login_url='/accounts/login')
 def submitProject(request):
-    
+        
     submitProjectForm = SubmitProjectForm()
-      
-    return render(request, 'rmp_pages/submit_project.html', locals())
+    
+    if request.method == 'POST':
+        submitProjectForm = SubmitProjectForm(request.POST,request.FILES)
+        user = request.user.id
+        
+        if submitProjectForm.is_valid():
+            upload = submitProjectForm.save(commit=False)
+            upload.user = request.user.profile
+            upload.profile = request.user
+            upload.save()
+        
+        return redirect('index')
+    else:
+        submitProjectForm = SubmitProjectForm()
+        return render(request, 'rmp_pages/submit_project.html', locals())
 
 
 
-#submitProject
+#updateProfile
 @login_required(login_url='/accounts/login')
 def updateProfile(request):
     
-    updateProf = UpdateProfileForm()  
+    my_prof = Profile.objects.get(user=request.user)
+    updateProf = UpdateProfileForm(instance=request.user)
+    
+    
+    if request.method == 'POST':
+        updateProf = UpdateProfileForm(request.POST,request.FILES,instance=request.user.profile)
+
+        if updateProf.is_valid():
+            updateProf.save()
+            
+            
+        return redirect('my_profile')
+    else:
+        updateProf = UpdateProfileForm(instance=request.user.profile)
+    
+      
     return render(request, 'rmp_pages/update_profile.html', locals())

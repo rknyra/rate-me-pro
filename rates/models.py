@@ -20,6 +20,9 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
         
+    def update_profile(self):
+        prof=Profile.objects.filter(id=Profile.id).update()
+        
         
     @classmethod    
     def update_bio(cls,id,new_bio):
@@ -27,6 +30,11 @@ class Profile(models.Model):
         new_bio_object = cls.objects.get(bio=new_bio)
         new_bio = new_bio_object.bio
         return new_bio
+    
+    @classmethod
+    def profile(cls):
+        profile = cls.objects.filter(id=Profile.id)
+        return profile
 
 @receiver(post_save,sender=User)
 def create_profile(sender, instance,created,**kwargs):
@@ -43,7 +51,7 @@ def save_profile(sender, instance,**kwargs):
 class Project(models.Model):
     title = models.CharField(max_length = 50)
     project_pic = ImageField(blank=True, manual_crop="")
-    description = models.CharField(max_length = 250)
+    description = models.TextField(max_length = 250)
     website= models.URLField(max_length=250)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     

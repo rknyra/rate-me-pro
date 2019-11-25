@@ -35,11 +35,16 @@
     <!-- Button trigger modal -->
 
     <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#{{project.id}}"> Rate this project </button>
+    <hr>
+    <p> Most recent project review based on the project's:</p>
 
-    <p> Design: {{ design }}</p>
+    {% for criteria in project.review_set.all %}
 
-    <p> Average Rating: {{project.average.set_all}} </p>
-
+    <p> Design: {{ criteria.design }}</p>
+    <p> Usability: {{ criteria.usability }}</p>
+    <p> Content: {{ criteria.content }}</p>
+    <p> Average Rating: {{ criteria.average }}</p>
+    {% endfor %}
 
   </div>
 </div>
@@ -70,8 +75,6 @@
         </form>
 
         <!-- ===== END OF PROJECT RATING FORM -->
-
-        <p> Average Rating: {{average}} </p>
 
       </div>
 

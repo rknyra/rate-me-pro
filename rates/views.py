@@ -12,8 +12,9 @@ from django.db.models import Avg
 def index(request):
     
     projects=Project.objects.all()
+    rates = Review.objects.all()
+    print(rates)
     
-
     rateForm = RateProjectForm()
     return render(request, 'index.html', locals())
 

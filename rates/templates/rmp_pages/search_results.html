@@ -17,8 +17,10 @@
   </div>
 </div>
 
-<div class="container">
-<div class"row">
+<div class='container-fluid topBuffer'>
+<div class="row">
+
+
 <!-- one card that will be looped over -->
 {% for project in searched_projects %}
 
@@ -29,9 +31,9 @@
 <div class="card projectDiv">
   <img class="card-img-top projectImage" src="{{ project.project_pic.cdn_url }}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title"> <a href="/"> {{ project.title }} </a> </h5>
+    <h5 class="card-title"> <a href="{{ project.website }}"> {{ project.title }} </a> </h5>
     <p class="card-text blur">  {{ project.description }}</p>
-    <p class="card-text blur">  {{ project.website }}</p>
+    <p class="card-text blur"> <a href="{{ project.website }}"> View site </a> </p>
     <p class="card-text blur">  {{ project.user }}</p>  
 
 
@@ -82,7 +84,11 @@
 
      
 <!-- loop to end above this comment-->
-</div>
-</div>
+
+
+
+
+</div> <!-- end of outer row-->
+</div> <!-- end of container-->
 
 {% endblock %}

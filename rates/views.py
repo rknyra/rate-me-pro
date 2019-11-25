@@ -53,8 +53,7 @@ def submitProject(request):
 def updateProfile(request):
     
     my_prof = Profile.objects.get(user=request.user)
-    updateProf = UpdateProfileForm(instance=request.user)
-    
+        
     
     if request.method == 'POST':
         updateProf = UpdateProfileForm(request.POST,request.FILES,instance=request.user.profile)

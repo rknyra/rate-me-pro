@@ -19,9 +19,9 @@
 <div class="card projectDiv">
   <img class="card-img-top projectImage" src="{{ project.project_pic.cdn_url }}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title"> <a href="/"> {{ project.title }} </a> </h5>
+    <h5 class="card-title"> <a href="{{ project.website }}"> {{ project.title }} </a> </h5>
     <p class="card-text blur">  {{ project.description }}</p>
-    <p class="card-text blur">  {{ project.website }}</p>
+    <p class="card-text blur"> <a href="{{ project.website }}"> View Site </a> </p>
     <p class="card-text blur">  {{ project.user }}</p>  
 
 

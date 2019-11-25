@@ -9,9 +9,9 @@ from phone_field import PhoneField
 
 #User Profile Model
 class Profile(models.Model):
-    prof_pic = ImageField(blank=True, manual_crop="")
-    bio = models.CharField(max_length = 250)
-    contact = PhoneField(blank=True, help_text='Contact phone number')
+    prof_pic = ImageField(blank=True, manual_crop="", null=True)
+    bio = models.CharField(max_length = 250, null=True)
+    contact = PhoneField(blank=True, help_text='Contact phone number', null=True)
     user = models.OneToOneField('auth.User',on_delete=models.CASCADE)
     
     def __str__(self):
@@ -49,11 +49,11 @@ def save_profile(sender, instance,**kwargs):
     
 #Project Model
 class Project(models.Model):
-    title = models.CharField(max_length = 50)
-    project_pic = ImageField(blank=True, manual_crop="")
-    description = models.TextField(max_length = 250)
-    website= models.URLField(max_length=250)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    title = models.CharField(max_length = 50, null=True)
+    project_pic = ImageField(blank=True, manual_crop="", null=True)
+    description = models.TextField(max_length = 250, null=True)
+    website= models.URLField(max_length=250, null=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     
     def save_project(self):
             self.save()

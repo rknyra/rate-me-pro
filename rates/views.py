@@ -38,8 +38,7 @@ def submitProject(request):
         
         if submitProjectForm.is_valid():
             upload = submitProjectForm.save(commit=False)
-            upload.user = request.user.profile
-            upload.profile = request.user
+            upload.user = request.user
             upload.save()
         
         return redirect('index')

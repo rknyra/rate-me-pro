@@ -1,4 +1,5 @@
 {% extends 'rmp_pages/base.html' %}
+{% load bootstrap4 %}
 
 
 {% block content %}
@@ -52,15 +53,23 @@
         </button>
       </div>
       <div class="modal-body">
-        the review form to display here: <br>
-        Design: rating... <br>
-        Usability: rating... <br>
-        Content: rating... <br>
-        Average Score: auto-calculated from above scores
+        Submit your ratins for {{ project.title }} <br>
+
+        <!-- ===== PROJECT RATING FORM -->
+
+        <form enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          {% bootstrap_form rateForm %}
+          <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+
+        <!-- ===== END OF PROJECT RATING FORM -->
+
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Submit review</button>
+        {% comment %} <button type="button" class="btn btn-success">Submit review</button> {% endcomment %}
       </div>
     </div>
   </div>

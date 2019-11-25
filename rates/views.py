@@ -47,6 +47,8 @@ def rateProjects(request, project_id):
 def myProfile(request):
     userProjects = Project.objects.filter(user=request.user)
     userProfile = Profile.objects.all()
+    rateForm = RateProjectForm()
+
       
     return render(request, 'rmp_pages/profile.html', locals())
 
@@ -99,6 +101,8 @@ def updateProfile(request):
 
 #search projects
 def searchProjects(request):
+    rateForm = RateProjectForm()
+
     if 'search' in request.GET and request.GET["search"]:
     
         search_term = request.GET.get("search")

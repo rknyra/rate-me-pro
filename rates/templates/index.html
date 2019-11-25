@@ -27,9 +27,9 @@
     <p class="card-text blur">  {{ project.user }}</p>  
 
 
-        <div class="overlay">
+        {% comment %} <div class="overlay">
         <p class="aveScore"> ave score:  </p> <!-- hidden until img hover -->
-        </div>
+        </div> {% endcomment %}
 
 
     <!-- Button trigger modal -->
@@ -64,7 +64,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Submit your ratins for {{ project.title }} <br>
+        Submit your ratings <strong>(scale of 1 to 10 in each criteria)</strong> for <strong>{{ project.title }}</strong> <br>
 
         <!-- ===== PROJECT RATING FORM -->
 

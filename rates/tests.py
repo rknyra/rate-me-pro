@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Profile
+from .models import Profile, Project, Review
 from django.contrib.auth.models import User
 
 

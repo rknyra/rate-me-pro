@@ -15,7 +15,17 @@
     <div class="container profileDetails">
         <div class="row align-items-center profContent">
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+
+              {% if user.profile.prof_pic %}
+
                 <img src="{{request.user.profile.prof_pic}}" alt="profPic" class="rounded-circle profilePic">
+
+              {% else %}
+
+               <img src="/static/images/sampleicon.png" alt="profPic" class="rounded-circle profilePic">
+
+               {% endif %}
+
             </div>
 
             

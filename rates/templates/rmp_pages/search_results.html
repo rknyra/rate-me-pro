@@ -50,7 +50,7 @@
 
     {% for criteria in project.review_set.all %}
       <div class"card-footer ratings" style="display: flex;">
-        <p> Dsgn: {{ criteria.design }},  Use: {{ criteria.usability }}, Cntnt: {{ criteria.content }}, Ave: {{ criteria.average }}, Reviewed by: {{ criteria.user }} </p>
+        <p> Dsgn: {{ criteria.design }},  Use: {{ criteria.usability }}, Cntnt: {{ criteria.content }}, <strong>Ave: {{ criteria.average }},</strong> Reviewed by: {{ criteria.user }} </p>
       </div>
     {% endfor %}
 

@@ -35,7 +35,7 @@
     opacity: 1;
     display: block;
     width: auto;
-    max-height: 450px;
+    max-height: 270px;
     transition: .5s ease;
     backface-visibility: hidden;
 }

@@ -22,6 +22,11 @@ Moringa School Project - inspired by [awwwards](https://www.awwwards.com/)
 6. view their profile (for registered users only)
 7. update their profile/bio-data (registered users)
 
+### API Endpoints
+* [Profile api](https://rate-me-pro.herokuapp.com/profiles/)
+* [Users api](https://rate-me-pro.herokuapp.com/users/)
+* [Projects api](https://rate-me-pro.herokuapp.com/projects/)
+
 ### Known Bugs
 No known bugs
 

@@ -57,6 +57,13 @@ def myProfile(request):
     return render(request, 'rmp_pages/profile.html', locals())
 
 
+#getApisPage
+def getApis(request):
+
+     
+    return render(request, 'rmp_pages/get_apis.html', locals())
+
+
 
 #submitProject
 @login_required(login_url='/accounts/login')

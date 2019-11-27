@@ -118,7 +118,7 @@ REST_FRAMEWORK = {
 
 UPLOADCARE = {
     'pub_key':'84f26b0c713f49cc3eda',
-    'secret':config('SECRET'),
+    'secret':'81a1f9bc10f4b45cc409',
 }
 
 WSGI_APPLICATION = 'rate_me_pro.wsgi.application'

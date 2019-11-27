@@ -117,7 +117,7 @@ REST_FRAMEWORK = {
 
 
 UPLOADCARE = {
-    'pub_key': '84f26b0c713f49cc3eda',
+    'pub_key':'84f26b0c713f49cc3eda',
     'secret':config('SECRET'),
 }
 

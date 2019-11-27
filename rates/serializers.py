@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Project
+from .models import Project, Profile
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -19,3 +19,8 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
         fields = ['title', 'project_pic', 'description', 'website']
+        
+class ProfileSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['prof_pic', 'bio']

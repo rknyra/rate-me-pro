@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views
 from django_registration.backends.one_step.views import RegistrationView
 from rest_framework import routers
-from rates.views import UserViewSet, GroupViewSet, ProjectViewSet
+from rates.views import UserViewSet, GroupViewSet, ProjectViewSet, ProfileViewSet
 from rest_framework.authtoken.views import obtain_auth_token
 
 
@@ -26,6 +26,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'projects', ProjectViewSet)
+router.register(r'profiles', ProfileViewSet)
 
 
 urlpatterns = [

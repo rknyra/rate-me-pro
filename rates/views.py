@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 from .forms import UpdateProfileForm, SubmitProjectForm, RateProjectForm
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg
-from rates.serializers import UserSerializer, GroupSerializer, ProjectSerializer
+from rates.serializers import UserSerializer, GroupSerializer, ProjectSerializer, ProfileSerializer
 from rest_framework import viewsets
 from .permissions import IsAdminOrReadOnly
 
@@ -157,4 +157,15 @@ class ProjectViewSet(viewsets.ModelViewSet):
     
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    # permission_classes = (IsAdminOrReadOnly)
+
+
+   
+class ProfileViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows projects to be viewed or edited
+    """
+    
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
     # permission_classes = (IsAdminOrReadOnly)

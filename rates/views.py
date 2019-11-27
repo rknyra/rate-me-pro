@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import *
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from .forms import UpdateProfileForm, SubmitProjectForm, RateProjectForm
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg
+from rates.serializers import UserSerializer, GroupSerializer, ProjectSerializer
+from rest_framework import viewsets
+
 
 #VIEWS
 
@@ -17,6 +20,7 @@ def index(request):
     
     rateForm = RateProjectForm()
     return render(request, 'index.html', locals())
+
 
 #rateProjects
 @login_required(login_url='/accounts/login')
@@ -40,7 +44,6 @@ def rateProjects(request, project_id):
     
     return redirect('index')
         
-
 
 
 #profilePage
@@ -114,3 +117,30 @@ def searchProjects(request):
     else:
         message = "you haven't searched for any project"  
     return render(request, 'rmp_pages/search_results.html', locals())
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to ve viewed or edited 
+    """
+    
+    queryset = User.objects.all().order_by('date_joined')
+    serializer_class = UserSerializer
+    
+    
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited
+    """
+    
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+    
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows projects to be viewed or edited
+    """
+    
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer

@@ -38,7 +38,7 @@ No known bugs
 5. CSS-3 (& Bootstrap4)
 6. Google Fonts
 7. Font awesome
-8. django-rest-framework (for building a restful API) [djangorestframework](https://www.django-rest-framework.org/tutorial/quickstart/)
+8. [djangorestframework](https://www.django-rest-framework.org/tutorial/quickstart/) - for building a RESTful API
 
 
 ### Support and contact details

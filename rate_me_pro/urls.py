@@ -18,13 +18,14 @@ from django.urls import path, include
 from django.contrib.auth import views
 from django_registration.backends.one_step.views import RegistrationView
 from rest_framework import routers
-from rates import views
+from rates.views import UserViewSet, GroupViewSet, ProjectViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'projects', views.ProjectViewSet)
+router.register(r'users', UserViewSet)
+router.register(r'groups', GroupViewSet)
+router.register(r'projects', ProjectViewSet)
 
 
 urlpatterns = [
@@ -35,5 +36,6 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('logout/',views.LogoutView.as_view(),{'next_page':'/'}),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-token-auth/', obtain_auth_token)
 ]

@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from rest_framwork import serializers
+from rest_framework import serializers
 from .models import Project
 
 

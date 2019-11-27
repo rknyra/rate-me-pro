@@ -22,10 +22,30 @@
 <div class="card projectDiv">
   <img class="card-img-top projectImage" src="{{ project.project_pic.cdn_url }}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title"> <a href="{{ project.website }}"> {{ project.title }} </a> </h5>
-    <p class="card-text blur">  {{ project.description }}</p>
-    <p class="card-text blur"> <a href="{{ project.website }}"> View Site </a> </p>
-    <p class="card-text blur">  {{ project.user }}</p>  
+
+  {% if user.is_authenticated %}
+   <h5 class="card-title"> <a href="{{ project.website }}"> {{ project.title }} </a> </h5>
+
+  {% elif user.is_anonymous %}
+
+  <h5 class="card-title"> <a href="/accounts/login"> {{ project.title }} </a> </h5>
+  
+  {% endif %}
+
+
+  <p class="card-text blur">  {{ project.description }}</p>
+
+  {% if user.is_authenticated %}
+
+  <p class="card-text blur"> <a href="{{ project.website }}"> View Site </a> </p>
+
+  {% elif user.is_anonymous %}
+
+  <h5 class="card-title"> <a href="/accounts/login"> View Site </a> </h5>
+  
+  {% endif %}
+
+  <p class="card-text blur"> Posted by:  {{ project.user }}</p>  
 
 
       

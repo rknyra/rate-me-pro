@@ -51,7 +51,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'e56dq00k3zj%z!k%*=ixyisq6(adj_7j!p**w7v0doq#(+79!+'
+# SECRET_KEY = 'in .env'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -111,8 +111,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
-    # 'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAdminUser', ),
-
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10    
 }

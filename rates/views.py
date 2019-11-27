@@ -7,6 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg
 from rates.serializers import UserSerializer, GroupSerializer, ProjectSerializer
 from rest_framework import viewsets
+from .permissions import IsAdminOrReadOnly
 
 
 #VIEWS
@@ -126,6 +127,7 @@ class UserViewSet(viewsets.ModelViewSet):
     
     queryset = User.objects.all().order_by('date_joined')
     serializer_class = UserSerializer
+    permission_classes = (IsAdminOrReadOnly)
     
     
 class GroupViewSet(viewsets.ModelViewSet):
@@ -135,6 +137,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    permission_classes = (IsAdminOrReadOnly)
+
     
 
 class ProjectViewSet(viewsets.ModelViewSet):
@@ -144,3 +148,4 @@ class ProjectViewSet(viewsets.ModelViewSet):
     
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    permission_classes = (IsAdminOrReadOnly)

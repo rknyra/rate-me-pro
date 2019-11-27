@@ -31,6 +31,9 @@ No known bugs
 3. Postgres
 4. HTML-5
 5. CSS-3 (& Bootstrap4)
+6. Google Fonts
+7. Font awesome
+8. django-rest-framework (for building a restful API)
 
 
 ### Support and contact details

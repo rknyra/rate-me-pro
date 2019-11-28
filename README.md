@@ -47,4 +47,6 @@ For pertinent comments, suggestions or questions, you may contact me at [RK Nyra
 ### License
 License used is <a href="https://choosealicense.com/licenses/mit/">MIT License</a> <br>
 
-Copyright (c) **Rate_Me_Pro November 2019**
+Copyright (c) **[Rate_Me_Pro](https://rate-me-pro.herokuapp.com/) November 2019**
+
+
